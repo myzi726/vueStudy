@@ -1,22 +1,19 @@
 <template>
 
   <div class="menu">
-    <a v-for="name in navMenu" :key="name"> {{ name }} </a>
-
+    <a v-for="a in navMenu" :key="a"> {{ a }} </a>
   </div>
 
-  <img alt="Vue logo" src="./assets/logo.png">
   <div>
-    <h4>{{ products[0] }}</h4>
-    <p>60 만원</p>
-  </div>
-  <div>
-    <h4>{{ products[1] }}</h4>
-    <p>80 만원</p>
+    <h4>{{products[0]}}</h4>
+    <p>50만원</p>
+  </div>  <div>
+    <h4>{{products[1]}}</h4>
+    <p>60만원</p>
   </div>
     <div>
-    <h4>{{ products[2] }}</h4>
-    <p>50 만원</p>
+    <h4>{{products[2]}}</h4>
+    <p>70만원</p>
   </div>
 </template>
 
@@ -42,7 +39,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 .menu {
