@@ -1,10 +1,11 @@
 <template>
 
+
  <!-- 상세페이지 모달창 -->
   <div class="black-bg" v-if="modal == true">
     <div class="white-bg">
-      <h4>상세페이지임</h4>
-      <p>상세페이지 내용임</p>
+      <h4>{{원룸들[userClick].title}}</h4>
+      <p>{{원룸들[userClick].content}}</p>
       <button @click="modal = false">닫기</button>
     </div>
   </div>
@@ -15,10 +16,10 @@
   </div>
 
 
-  <div v-for="i in 원룸들" :key="i">
-    <img :src="원룸들[i].image" class="room-img">
-    <h4>{{원룸들[i].title}}</h4>
-    <p>{{원룸들[i].price}}</p>
+  <div v-for="(a,i) in 원룸들" :key="i">
+    <img :src="a.image" class="room-img">
+    <h4 @click="modal = true; userClick=i">{{a.title}}</h4>
+    <p>{{a.price}}원</p>
   </div>
 
 </template>
@@ -27,11 +28,11 @@
 
 import data from './assets/oneroom.js'
 
-
 export default {
   name: 'App',
   data(){
     return {
+      userClick : 0,
       원룸들 : data,
       modal : false,
       navMenu : ['Home', 'Shop', 'About'],
