@@ -1,20 +1,12 @@
 <template>
 
 
- <!-- 상세페이지 모달창 -->
-  <div class="black-bg" v-if="modal == true">
-    <div class="white-bg">
-      <h4>{{원룸들[userClick].title}}</h4>
-      <p>{{원룸들[userClick].content}}</p>
-      <button @click="modal = false">닫기</button>
-    </div>
-  </div>
+<Modal />
 
 
   <div class="menu">
     <a v-for="a in navMenu" :key="a"> {{ a }} </a>
   </div>
-
 
   <div v-for="(a,i) in 원룸들" :key="i">
     <img :src="a.image" class="room-img">
@@ -27,6 +19,8 @@
 <script>
 
 import data from './assets/oneroom.js'
+// import Discount from './Discount.vue'
+import Modal from './Modal.vue'
 
 export default {
   name: 'App',
@@ -48,6 +42,8 @@ export default {
   },
 
   components: {
+    // Discount : Discount,
+    Modal : Modal,
   }
 }
 </script>
@@ -59,6 +55,12 @@ body {
 
 div {
   box-sizing : border-box;
+}
+
+.discount {
+  background: white;
+  border-radius: 5px;
+
 }
 
 .black-bg {
