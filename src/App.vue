@@ -1,25 +1,26 @@
 <template>
 
 
-<Modal />
+   <Modal :원룸들="원룸들" :누른거="userClick" :모달창="모달창" />
 
+    <div class="menu"> 
+      <a v-for="a in navMenu" :key="a"> {{ a }} </a>
+    </div>
 
-  <div class="menu">
-    <a v-for="a in navMenu" :key="a"> {{ a }} </a>
-  </div>
+    <Discount />
 
-  <div v-for="(a,i) in 원룸들" :key="i">
-    <img :src="a.image" class="room-img">
-    <h4 @click="modal = true; userClick=i">{{a.title}}</h4>
-    <p>{{a.price}}원</p>
-  </div>
+    <div v-for="(a,i) in 원룸들" :key="i">
+      <img :src="a.image" class="room-img">
+      <h4 @click="모달창 = true; userClick = i">{{a.title}}</h4>
+      <p>{{a.price}}원</p>
+    </div>
 
 </template>
 
 <script>
 
 import data from './assets/oneroom.js'
-// import Discount from './Discount.vue'
+import Discount from './Discount.vue'
 import Modal from './Modal.vue'
 
 export default {
@@ -28,7 +29,7 @@ export default {
     return {
       userClick : 0,
       원룸들 : data,
-      modal : false,
+      모달창 : false,
       navMenu : ['Home', 'Shop', 'About'],
       products: ['역삼동원룸', '천호동원룸', '마포구원룸'],
       신고수 : [0,0,0],
@@ -42,7 +43,7 @@ export default {
   },
 
   components: {
-    // Discount : Discount,
+    Discount : Discount,
     Modal : Modal,
   }
 }
@@ -58,9 +59,10 @@ div {
 }
 
 .discount {
-  background: white;
+  background: #eee;
   border-radius: 5px;
-
+  padding: 10px;
+  margin: 10px;
 }
 
 .black-bg {
