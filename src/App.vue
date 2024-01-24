@@ -1,7 +1,9 @@
 <template>
 
 
-   <Modal :원룸들="원룸들" :누른거="userClick" :모달창="모달창" />
+   <Modal @closeModal="모달창 = false" :원룸들="원룸들" :누른거="userClick" :모달창="모달창" />
+   
+
 
     <div class="menu"> 
       <a v-for="a in navMenu" :key="a"> {{ a }} </a>
@@ -9,7 +11,8 @@
 
     <Discount />
 
-    <Card :원룸="원룸들[i]" v-for="(a,i) in 원룸들" :key="a"/>
+    <Card @openModal="모달창 = true; userClick = $event"
+          :원룸="원룸들[i]" v-for="(a,i) in 원룸들" :key="a" />
     <!-- <Card :원룸="원룸들[1]"/>
     <Card :원룸="원룸들[2]"/>
     <Card :원룸="원룸들[3]"/>
