@@ -9,11 +9,18 @@
 
     <Discount />
 
-    <div v-for="(a,i) in 원룸들" :key="i">
+    <Card :원룸="원룸들[i]" v-for="(a,i) in 원룸들" :key="a"/>
+    <!-- <Card :원룸="원룸들[1]"/>
+    <Card :원룸="원룸들[2]"/>
+    <Card :원룸="원룸들[3]"/>
+    <Card :원룸="원룸들[4]"/>
+    <Card :원룸="원룸들[5]"/> -->
+
+    <!-- <div v-for="(a,i) in 원룸들" :key="i">
       <img :src="a.image" class="room-img">
       <h4 @click="모달창 = true; userClick = i">{{a.title}}</h4>
       <p>{{a.price}}원</p>
-    </div>
+    </div> -->
 
 </template>
 
@@ -22,6 +29,7 @@
 import data from './assets/oneroom.js'
 import Discount from './Discount.vue'
 import Modal from './Modal.vue'
+import Card from './Card.vue'
 
 export default {
   name: 'App',
@@ -37,14 +45,12 @@ export default {
   },
 
   methods: {
-    // increase() {
-    //   this.신고수 += 1;
-    // }
   },
 
   components: {
     Discount : Discount,
     Modal : Modal,
+    Card : Card,
   }
 }
 </script>
